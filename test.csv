@@ -1,0 +1,3 @@
+id,categorie,name,part_number,price,description,manufacturer,datasheet
+E-0000,Integrated Circuits (ICs),AP2138N-3.3TRG1DIDKR-ND,AP2138N-3.3TRG1,0.78000,IC REG LINEAR 3.3V 250MA SOT23-3,Diodes Incorporated,https://www.diodes.com/assets/Datasheets/AP2138-9.pdf
+E-0001,Discrete Semiconductor Products,HD01DITR-ND,HD01-T,0.17574,BRIDGE RECT 1P 100V 800MA 4-DIP,Diodes Incorporated,https://www.diodes.com/assets/Datasheets/products_inactive_data/ds17003.pdf

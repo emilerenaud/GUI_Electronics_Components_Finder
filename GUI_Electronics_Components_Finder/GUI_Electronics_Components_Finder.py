@@ -137,7 +137,7 @@ class GUI():
         self.DATABASE_entry.insert(0,str(self.database_path))
 
     def exportToExcel(self):
-        self.excel_path = filedialog.askopenfilename(title = "Export Database to .csv",filetypes = (("Excel","*.csv"),("all file","*.*")))
+        self.excel_path = filedialog.asksaveasfilename(title = "Export Database to .csv",filetypes = (("Excel","*.csv"),("all file","*.*")))
         self.database.export_xls(self.database_path,self.excel_path)
 
 

@@ -79,7 +79,9 @@ class database():
 
     def export_xls(self,db_file, xls_file):
         # Instance of SQL object
-        database = cs.SQL("sqlite:///" + db_file + ".db")
+        if db_file.find('.db') == -1:
+            db_file += '.db'
+        database = cs.SQL("sqlite:///" + db_file)
 
         # Gets result from SQL query
         result = database.execute("SELECT id, categorie, name, part_number, price, description, "
