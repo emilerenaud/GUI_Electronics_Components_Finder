@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "GUI_Electronics_Components_Finder", "GUI_Electronics_Components_Finder\GUI_Electronics_Components_Finder.pyproj", "{E586A527-8CAB-4204-919D-A322ABEC0E1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E586A527-8CAB-4204-919D-A322ABEC0E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E586A527-8CAB-4204-919D-A322ABEC0E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0657CC9D-8DAA-4106-AE37-DC73C03D4C62}
+	EndGlobalSection
+EndGlobal
