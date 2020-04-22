@@ -101,9 +101,11 @@ class GUI():
                 self.infoDigikey = self.database.get_digikey(self.URL_entry.get())
                 self.updateInfo()
             except:
-                print("Something went wrong with get_digikey(url)")
+                messagebox.showwarning("Digikey","A error occur while searching on Digikey")
         else:
-            print("nothing matter")
+            #print("nothing matter")
+            messagebox.showwarning("Invalid Link","Please insert a valid link")
+            
 
     def updateInfo(self):
         self.INFO_DigikeyNumber_entry.delete(0,tk.END)
@@ -125,11 +127,19 @@ class GUI():
         self.INFO_Price_entry.insert(0,str(self.infoDigikey[3]))
 
     def addComponent(self):
-        if self.DATABASE_entry != '':
+        if self.DATABASE_entry.get() != '':
             if self.infoDigikey != None:
-                print("digikey not empty")
-                self.database.add_info(self.infoDigikey,self.database_path)
-                self.database.delete_duplicate(self.database_path)
+                try:
+                    self.database.add_info(self.infoDigikey,self.database_path)
+                    self.database.delete_duplicate(self.database_path)
+                    messagebox.showinfo("Adding Component", "Successful")
+                except:
+                    messagebox.showerror("SQL Error","An error occur while adding component to the SQL Database")
+            else:
+                messagebox.showerror("Digikey Info Error","Please check the Info section")
+        else:
+            self.pathToDatabase()
+            self.addComponent()
 
     def pathToDatabase(self):
         self.database_path = filedialog.askopenfilename(title = "database",filetypes = (("SQL","*.db"),("all file","*.*")))
@@ -138,7 +148,14 @@ class GUI():
 
     def exportToExcel(self):
         self.excel_path = filedialog.asksaveasfilename(title = "Export Database to .csv",filetypes = (("Excel","*.csv"),("all file","*.*")))
-        self.database.export_xls(self.database_path,self.excel_path)
+        try:
+            if self.database_path != '':
+                self.database.export_xls(self.database_path,self.excel_path)
+            else:
+                self.pathToDatabase()
+        except:
+            messagebox.showerror("Export Erreur","An error occur while exporting to .csv")
+            
 
 
 
