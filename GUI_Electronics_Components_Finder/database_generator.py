@@ -24,21 +24,28 @@ class database():
 
 
     def get_digikey(self,url):
-        page = requests.get(url)
-        soup = BeautifulSoup(page.text, 'html.parser')
+        try:
+            page = requests.get(url)
+            soup = BeautifulSoup(page.text, 'html.parser')
 
-        # Uses html tag and unique (class, id, itemprop, etc.) to retrieve info
-        site_number = soup.find('td', id="reportPartNumber").get_text().strip()
-        manufacturer = soup.find('span', itemprop="name").get_text().strip()
-        part_number = soup.find('h1', itemprop="model").get_text().strip()
-        description = soup.find('td', itemprop="description").get_text().strip()
-        price = soup.find('span', itemprop="price").get_text().strip()
-        datasheet = soup.find('a', class_="lnkDatasheet").get('href').strip()
-        categorie = soup.find('td', class_="attributes-td-categories-link").get_text().strip()
+            # Uses html tag and unique (class, id, itemprop, etc.) to retrieve info
+            site_number = soup.find('td', id="reportPartNumber").get_text().strip()
+            manufacturer = soup.find('span', itemprop="name").get_text().strip()
+            part_number = soup.find('h1', itemprop="model").get_text().strip()
+            description = soup.find('td', itemprop="description").get_text().strip()
+            price = soup.find('span', itemprop="price").get_text().strip()
+            datasheet = soup.find('a', class_="lnkDatasheet").get('href').strip()
+            categorie = soup.find('td', class_="attributes-td-categories-link").get_text().strip()
 
-        info = [categorie, site_number, part_number, price, description, manufacturer, datasheet]
+            info = [categorie, site_number, part_number, price, description, manufacturer, datasheet]
 
-        return info
+            return info
+
+        except:
+            print("Error while requests.get(url)")
+            return None
+
+        
 
 
     def create_database(self,db_file):
